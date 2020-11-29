@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import buildMarker from './marker';
 console.log('works again~');
 // var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 // mapboxgl.accessToken = 'pk.eyJ1IjoiYW5jbGF1ZHlzIiwiYSI6ImNraHV1NHh6YzE5NjcyeXFwZzZjdno0MHUifQ.M_fusuuoaF5VHSOwOTJOcw';
@@ -20,9 +21,5 @@ const map = new mapboxgl.Map({
   style: 'mapbox://styles/mapbox/streets-v10', // mapbox has lots of different map styles available.
 });
 
-const markerDomEl = document.createElement('div'); // Create a new, detached DIV
-markerDomEl.style.width = '32px';
-markerDomEl.style.height = '39px';
-markerDomEl.style.backgroundImage = 'url(http://i.imgur.com/WbMOfMl.png)';
-
-new mapboxgl.Marker(markerDomEl).setLngLat([-74.009, 40.705]).addTo(map);
+const marker = buildMarker('hotel', [-74.009151, 40.705086]);
+marker.addTo(map);
